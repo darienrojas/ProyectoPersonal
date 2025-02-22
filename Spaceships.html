@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ProyectoPersonal.css">
+    <script src="codigoProyecto.js"></script>
+    <title>Deep Nebula - Spaceships</title>
+</head>
+<body class="spaceship_gallery">
+    <div class="spaceshipambience">
+        <video autoplay loop muted>
+            <source src="videos/black.mp4" type="video/mp4">
+        </video>
+    </div>
+    <header class="gallery_header">
+        <menu>
+            <li><img src="imagenes/logo_deepnebula.png" class="logo"></li>
+            <li class="green"><a href="ProyectoPersonal.html">Home</a></li>
+            <li><a href="Journey.html">Journey</a>
+                <ul class="sub-menu"><li><a href="Moon.html">Moon</a></li></ul>
+                <ul class="sub-menu"><li><a href="Mars.html">Mars</a></li></ul>
+            </li>
+            <li class="green"><a href="Spaceships.html">Spaceships</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li class="green"><a href="form.html">Join Us</a></li>
+            <li class="name">Darien Rojas</li>
+        </menu>
+    </header>
+    <div class="navyselector">
+        <div>Select your spaceship</div><br>
+        <button onclick="selector1()">Quantum Mirage 3E7</button>
+        <button onclick="selector2()">Shadow Hipernova 2077</button>
+        <button onclick="selector3()">Orion’s Compass V2</button>
+        <button onclick="selector4()">Eternal Abyss S8840</button>
+    </div>
+    <section class="garage">
+        <article>
+            <img src="imagenes/spaceship_1.png" id="hangar">
+        </article>
+    </section>
+    <section class="Price">
+        <div>MARKET PRICE</div>
+            <button onclick="numrandom()">UPDATE FOR INFLATION</button>
+            <label class="Number">000000</label><span>$</span>
+    </section>
+</body>
+</html>

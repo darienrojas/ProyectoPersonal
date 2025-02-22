@@ -1,0 +1,898 @@
+  /*Darien Rojas Mirabal*/
+
+  /**********IMPORTANTE LEER**********/
+
+  /*Hay un total de 7 ficheros, todos los ficheros se encuentran disponibles en el menu inicial de la página principal, que también incluye
+  un submenu que lleva a otros 2 ficheros, algunas páginas no tienen submenu por ser anti-estético, causar problemas o por tener poca utilidad. 
+  La página principal también contiene links a estos mismos ficheros (además de los del menú)*/
+
+  /*En el CSS, cada fichero está delimitado por una línea como la de abajo, ordenado tal cual está en el menú*/
+  
+  /*El formulario solo está hecho con flex y el resto de páginas todas están hechas con una combinación de Grid y de Flex*/
+
+  /*----------------------------------------FICHEROº1 Página principal----------------------------------------*/
+
+  /*En toda la página principal se ha usado mayoritariamente Flex y apenas el Grid (las filas si se han usado), la división
+  de las columnas en 45% y 55% SOLO sirve para colocar el <span> con clase .subtitle (las letras naranjas del inicio) un poco 
+  antes del final de la mitad de la página*/ 
+
+  body {
+    background-color: black; /*Aplico esto por defecto a todas las páginas porque algunos fondos tienen opacidad*/
+    font-family: "Orbitron";
+    margin: 0; /* Margen 0 para extender la imagen del fondo, las páginas webs tienen un margen estandar, esto se aplica a TODAS las páginas*/
+  }
+  .main-structure {
+    display: grid;
+    grid-template-columns: 45% 55%; 
+    grid-template-rows: 1300px 5740px 700px;
+    background-color: black;
+    background-attachment: fixed; 
+  }
+  @font-face { /*Font Face permite usar una fuente descargada: https://fonts.google.com/specimen/Orbitron*/
+    font-family: "Orbitron";
+    src: url(font/Orbitron-Bold.ttf);
+  }
+  .video-container {
+    grid-column: 1/2;
+    grid-row: 1/1;
+    z-index: -1;
+    position: absolute;
+  }
+  /*La sobreposición de elementos se hace con z-index, dependiendo del valor que ponga tendrá menos o mayor prioridad*/
+  /*Al colocar el video  dentro de un <div> y asignarle la misma posicion que el <menu> y la imagen PNG, se consigue que 
+  el video se quede en el fondo*/
+  
+  /*-------------------------Fondos--------------------------*/
+  /*El fondo principal y el fondo de 3 páginas está definido aquí*/
+  .main-structure > header > div > video {
+    width: 100%;
+    opacity: 85%;
+    filter: brightness(0.9);
+  }
+  .deepspace {
+    z-index: -1;
+    position: fixed;
+    opacity: 87%;
+  }
+  /*El uso de filtros apena se nota en este caso y solo es para bajarle el brillo o darle visibilidad al menu y al PNG*/
+  /*---------------------------------------------------*/
+
+  a {
+    text-decoration: none;
+  }
+  div > a {  /*La "a" es para todos los Links*/
+    text-decoration: none;
+    color: black;
+  }
+  li > a {
+    color: white;
+  }
+
+    /*Encabezado*/
+
+  .main-structure > header {  
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/4;
+    grid-row: 1/1;
+  }
+  .main-structure > header > div > img:first-child { /*El first-child es simplemente para evitar hacer otra clase para un solo atributo*/
+    width: 100%;
+  }
+  .main-wallpaper {
+    grid-column: 1/4;
+    grid-row: 1/1;
+    position: absolute;
+    margin-top: -5%;
+    filter: drop-shadow(0px 0px 3px white);
+  }
+  .subtitle {           /* Subtítulo divido en varias partes (h1, b): CLAIMING THE SKIES SHAPING OUR DESTINY*/
+    grid-column: 1/1;
+    grid-row: 1/1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .subtitle > h1 {
+    color: orangered;
+    font-size: 4vh;   /*El vh es para que el tamaño se mantenga en la medida de lo posible, a pesar de eso, solo se ha usado aquí y en el menu*/
+    font-family: "Orbitron";
+    text-shadow: 0px 5px black;
+    white-space: pre;
+    text-align: center;
+    margin-top: 30%;
+    filter: drop-shadow(0px 0px 5px black);    
+  }
+  .subtitle > h1 > b {
+    font-size: 2vh;
+    color: white;
+    text-shadow: none;   /*Las etiquetas se pueden sobreescribir eliminando los efectos anteriores con "none"*/
+  }
+  section > span {
+    color: black;
+  }
+  menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1;
+  }
+  li {
+    color: white;
+    list-style: none;
+    font-size: 2.2vh;
+    margin: 1% 2% 0% 2%;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 0px black;
+  }
+  .name {
+    color: white;
+    font-family: "Orbitron";
+    font-style: oblique;
+    cursor: default;
+  }
+  menu > li > a:hover, ul > li > a:hover {
+    color: #f6da06;
+  }
+  .green > a {
+    color: rgb(10, 229, 10);
+  }
+  .purple > a {
+    color: rgb(209, 13, 209);
+  }
+  .cyan > a {
+    color: cyan;
+  }
+  .red > a {
+    color: red;
+  }
+  .sub-menu {
+    display: none;
+  }
+  li:hover .sub-menu {
+    display: block;      
+  }
+  .logo {  /* LOGO. Fuente del Logo: https://www.fontbolt.com/font/spacex-font/ */
+    width: auto;
+    height: 35px;
+    cursor: pointer;
+    filter: drop-shadow(5px 5px 5px black); /*El valor de la difusion de la sombra depende del 3 valor*/
+  }
+
+  /*Sección y encabezado de sección*/
+
+  .main-paragraph {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    border-color: #dcc30d;
+    text-align: center;
+  }
+  .major-paragraph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  div > div > p {
+    color: white;
+  }
+  section > header > h2 {        
+    margin-top: 10%;
+    color: #dcc30d;
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 10px;
+  }
+  section > header {
+    color: white;
+    white-space: pre-line; 
+    text-align: center;
+    font-size: 30px;
+  }
+  .major-paragraph > div > h4 {
+    text-align: center;
+    font-size: 22px;
+    color: #dcc30d;    
+  }
+  section > div > div > p {
+    font-size: 17px;
+    white-space: pre;
+  }
+
+
+  /* Sección -> Artículo 1 -> Header, Sección, Footer <- Articulo 1 */
+
+  .main-paragraph > article > section > div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  section > article > header {
+    margin-top: 12%;
+    background: linear-gradient(black, white 50px, black); 
+    margin-bottom: -10%;
+  }
+  section > article > header > h1 {   /*Títulos de los artículos*/
+    text-align: center;
+    color: #dcc30d;
+    font-size: 65px;
+    margin-top: auto;
+    margin-bottom: 13%;
+    font-family: "Orbitron";
+    margin-left: 2%;
+    text-shadow: 0px 5px black;
+    white-space: pre;
+  }
+  .img-0 {    /* Primera imagen*/
+    border: solid 5px;
+    border-color: #dcc30d;
+    border-radius: 5px;
+    border-style: ridge;
+    width: 69%;
+    height: 400px;
+  }
+  .img-1 {                  /*imagen 1 del segundo parrafo*/
+    border: solid 5px;
+    border-color: #dcc30d;
+    border-radius: 5px;
+    border-style: ridge;
+    width: auto;
+    height: 400px;
+  }
+  .img-2 {                /*imagen 2 del segundo parrafo*/
+    border: solid 5px;
+    border-color: #dcc30d;
+    border-radius: 5px;
+    border-style: ridge;
+    width: auto;
+    height: 400px;
+  }
+  article > footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;   
+  }
+  article >  section > div > div {  /*Título "Start your journey today!"*/
+    color: black;
+    position: absolute;
+    border-color: #dcc30d;
+    background-color: #dcc30d;
+    padding: 10px 20px; 
+    font-size: 40px; 
+    border-radius: 7px;
+    border-style: ridge;
+    cursor: pointer;
+    bottom: 81px;
+  }
+  .text-block-left {   /*Título "Events"*/
+    color: black;
+    position: absolute;
+    border-color: #dcc30d;
+    background-color: #dcc30d;
+    padding: 10px 20px; 
+    font-size: 40px; 
+    border-radius: 7px;
+    border-style: ridge;
+    cursor: pointer;
+    bottom: 149px;
+    left: 33%;
+  }
+  .text-block-right {   /*Título "Spaceships & More"*/
+    color: black;
+    position: absolute;
+    border-color: #dcc30d;
+    background-color: #dcc30d;
+    padding: 10px 20px; 
+    font-size: 40px; 
+    border-radius: 7px;
+    border-style: ridge;
+    cursor: pointer;
+    bottom: 149px;
+    right: 20%;
+  }
+  .text-block-right:hover, .text-block-left:hover, article >  section > div > div:hover {
+    filter: invert(100%); 
+  }
+
+  article > section > div > div {         /* El texto se hace visible con "Position: Relative"*/
+    position: relative;
+  }
+  article > footer > div {
+    position: relative;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  article > section > div > p {
+    text-align: center;
+    white-space: pre-line;
+    color: white;
+    font-size: 20px;
+    margin-top: -2%;
+  }
+  article > footer > div > p {
+    color: white;
+    font-size: 20px;
+    white-space: pre;
+  }
+
+  /* Artículo 2 */
+
+  article > section > div > video {  /* Cacterísticas de los 4 videos en bucle*/
+    border: solid 5px;
+    border-color: #dcc30d;
+    border-radius: 5px;
+    border-style: ridge;
+    height: 600px;
+  }
+  article > section > div > img {
+    border: solid 5px;
+    border-color: #dcc30d;
+    border-radius: 5px;
+    border-style: ridge;
+    height: 600px;
+  }
+  article > section > p {
+    text-align: center;
+    color: white;
+    white-space: pre-line;
+    font-size: 20px;
+  }
+  article > section > p > span {
+    color: black;
+    border-color: #dcc30d;
+    background-color: #dcc30d;
+    padding: 10px 20px; 
+    font-size: 40px; 
+    border-radius: 7px;
+    border-style: ridge;
+    cursor: pointer;
+  }
+  article > section > p > span:hover {
+    background-color: red;
+    box-shadow: 0px 0px 35px yellow;
+    font-size: 50px;
+  }
+
+  /* Seccción -> Pie de página */
+
+  section > footer { 
+    margin-top: 20%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  footer > h2 {
+    color: #dcc30d;
+    text-shadow: 0px 5px white;
+    font-size: 60px;
+  }
+  section > footer > img {    /* Imagen de la Tierra */
+    max-width: 100%;
+  }
+  section > footer > span {
+    color: yellow;
+    border-color: yellow;
+    background-color: blue;
+    padding: 10px 55px;
+    font-size: 40px; 
+    border-radius: 7px;
+    border-style: ridge;
+    cursor: pointer;
+  }
+  section > footer > span > a {
+    color: white;
+  }
+  section > footer > span:hover {
+    background-color: rgb(104, 166, 12);
+    box-shadow: 0px 0px 35px yellow;
+  }
+  
+  /* Pie de página */
+
+  body > footer {
+    background-color: black;
+    grid-column: 1/3;
+    grid-row: 3/4;
+    background-image: url("imagenes/wallpaper-end.jpg");
+    background-size: cover;
+    border: solid 4px rgb(38, 186, 231);
+    border-style: ridge;
+  }
+  footer > p {
+    color: white;
+    white-space: pre-line;
+    text-align: center;
+    font-size: 20px;
+  }
+  footer > h1 {
+    text-align: center;
+    white-space: pre-line;
+  }
+  .last-paragraph {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .column-type {
+    flex-direction: column;
+    text-align: center;
+    margin-right: 20%;
+  }
+  footer > div > div > h2, footer > div > div > span {
+    color: black;
+    white-space: pre-line;
+  }
+  footer > div > div > span {
+    font-size: 20px;
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
+  }
+  footer > div > div > h2 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border: solid;
+    border-color: black;
+    cursor: pointer;
+    border-style: ridge;
+    font-size: 45px;
+  }
+  footer > div > div > h2:hover {
+    background-color: rgb(38, 186, 231);
+  }
+  footer > h1 {
+    color: #dcc30d;
+    font-family: sans-serif;
+    font-size: 65px;
+    margin-top: auto;
+    margin-bottom: 13%;
+    font-family: "Orbitron";
+    margin-left: 2%;
+    text-shadow: -5px 5px black;
+    white-space: pre;
+  }
+
+ /*----------------------------------------FICHEROº2 "Journey"----------------------------------------*/
+
+  .Journey > menu {
+    grid-column: 1/4;
+    grid-row: 1/1;
+    width: 100%;
+  }
+  .Journey {
+    display: grid;
+    grid-template-columns: 20% 40% 27%; /* Los numeros no suman el 100% porque hay una disparidad con el tamaño del PNG de la Luna*/
+    grid-template-rows: 200px 900px 800px;
+    justify-content: center;
+  }
+  main > figure {
+    grid-column: 2/2;
+    grid-row: 2/2;
+  }
+  .moon {
+    max-width: 115%;
+  }
+  .moon:hover {
+    filter: drop-shadow(0px 0px 20px white); 
+    cursor: pointer;
+  }
+  .selector-A {
+    grid-column: 1/1;
+    grid-row: 2/2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .selector-B {
+    grid-column: 3/3;
+    grid-row: 2/2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .selector-A div, .selector-B div, .selector-D div, .selector-C div { 
+    color: white;
+    font-family: "Orbitron";
+    font-size: 20px;
+    font-style: oblique;
+    color: rgb(110, 211, 245);
+  }
+
+  /*Aquí aplico a TODOS los que esten en el grupo de esa clase un conjunto de atribuos*/
+
+  .selector-A h4, .selector-B h4, .selector-D h4, .selector-C h4 {
+    font-family: "Orbitron";
+    font-size: 25px;
+    letter-spacing: 4px;
+    color: #dcc30d;
+  }
+  .selector-C {
+    grid-column: 1/1;
+    grid-row: 3/3;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .selector-D {
+    grid-column: 3/3;
+    grid-row: 3/3;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .mars {
+    width: 100%;
+    grid-column: 2/2;
+    grid-row: 3/3;
+  }
+  .mars:hover {
+    filter: drop-shadow(0px 0px 10px red); 
+    cursor: pointer;
+  }
+  .saturn {
+    width: 100%;
+    grid-column: 2/2;
+    grid-row: 4/4;
+  }
+  .saturn:hover {
+    filter: drop-shadow(0px 0px 10px yellow); 
+    cursor: pointer;
+  }
+
+  /*----------------------------------------FICHEROº2.1 "Journey" --> "Moon"----------------------------------------*/
+
+  .container-A {
+    display: grid;
+    grid-template-columns: 5% 20% 15% 30% 15% 5% 10%; 
+    grid-template-rows: 125px 800px 300px;
+    background-image: url("imagenes/starcraft.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .container-A > header {
+    grid-column: 1/8;
+    grid-row: 1/1;
+  }
+  .container-A > nav  {
+    grid-column: 2/2;
+    grid-row: 2/3;
+    color: white;
+    text-align: justify;
+  } 
+  .container-A > nav > p {
+    font-size: 20px;
+  }
+  .container-A > nav > h1 {
+    color: #dcc30d;
+    font-size: 45px;
+  } 
+  .container-A > article {
+    grid-column: 4/4;
+    grid-row: 2/3;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container-A > article > h2 {
+    text-align: center;
+    color: #dcc30d;
+  }
+  .container-A > article > div {
+    text-align: center;
+    color: white;
+    background-color: grey;
+    padding: 15px;
+    border-radius: 10px;
+    border: solid 2px;
+    border-color: #dcc30d;
+  }
+
+  /*----------------------------------------FICHEROº2.2 "Journey --> "Mars"----------------------------------------*/
+  .container-B {
+    display: grid;
+    grid-template-columns: 10% 80% 10%; 
+    grid-template-rows: 125px 800px;
+    background-image: url("imagenes/RedMars.jpg");
+    background-attachment: fixed;
+    background-size: cover; 
+    background-repeat: no-repeat;
+  }
+  .container-B > header > menu > li {
+    font-size: 22px;
+  }
+  .container-B > header {
+    grid-column: 1/4;
+    grid-row: 1/1;
+  }
+  .container-B > section > div > h1 {
+    color: #dcc30d;
+    font-size: 30px;
+    text-shadow: 0px 0px 7px black; 
+  }
+  .container-B > section > div:first-child  {
+    grid-column: 2/2;
+    grid-row: 2/2;
+  }
+  .container-B > section {
+    color: white;
+    grid-column: 2/2;
+    grid-row: 2/2;
+  }
+  .container-B > section > div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container-B > section > div > img:first-child {
+    width: auto;
+    height: 200px;
+    margin: 1%;
+    filter: drop-shadow(0px 3px 10px white); 
+    border: none;
+  }
+  .sub-text-1 {
+    text-align: justify;
+    font-size: 15px;
+    position: relative;
+    flex: 1;                  
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  /*Flex 1 basicamente reparte el espacio de forma igualitaria, entendiendo esto, el texto se reparte el espacio
+   sobrante que tiene la imagen y en lugar de colocarse debajo, se coloca al lado, donde está todo el espacio sin ocupar*/
+
+  .sub-text-2 {
+    text-align: justify;
+    font-size: 15px;
+    position: relative;
+    flex: 1;                  
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .container-B > section > div > img {
+    width: auto;
+    height: 200px;
+    margin: 1%;
+    border: solid 5px;
+    border-color: #dcc30d;
+    border-style: ridge;
+    border-radius: 10px;
+  }
+  
+  /*----------------------------------------FICHEROº3 "Spaceships"----------------------------------------*/
+
+  .spaceship_gallery {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 23% 51% 5% 15%;
+    grid-template-rows: 100px 700px 20px 80px;
+  }
+  .gallery_header {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/6;
+    grid-row: 1/1;
+    background-image: none;
+  }
+  .garage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 2/4;
+    grid-row: 2/2;
+  }
+  .navyselector > button {
+    width: 40%;
+    height: 50px;
+    padding: 25px;
+    margin: 1% 0% 0% 2%;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Orbitron";
+    background-color: white;
+    cursor: pointer;
+  }
+  .navyselector > button:hover {
+    filter: drop-shadow(0px 0px 3px cyan);
+    border-color: #dcc30d;
+  }
+  .navyselector {
+    grid-column: 1/3;
+    grid-row: 2/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    width: 50%;
+  }
+  .navyselector > div {
+    color: #dcc30d;
+    font-size: 20px;
+  }
+  .garage > article {
+    grid-column: 2/3;
+    grid-row: 1/1;
+    display: flex;
+    justify-content: center;
+  }
+  .garage > article > img {
+    width: 72%;
+    filter: brightness(10px);
+    filter: drop-shadow(0px 0px 5px yellow);
+  }
+  .spaceshipambience {
+    position: fixed;
+    grid-column: 1/4;
+    grid-row: 1/2;
+  }
+  .Price {
+    grid-column: 1/4;
+    grid-row: 3/3;
+    color: white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+  }
+  .Price > button {
+    background-color: rgb(9, 215, 9);
+    border-radius: 7px;
+    border: solid 2px #e1ff00;
+    padding: 15px;
+    margin: 2%;
+    cursor: pointer;
+  }
+  .Number {
+    color: white;
+    font-size: 65px;
+  }
+  .Price > span {
+    color: greenyellow;
+    font-size: 30px;
+  }
+  .Price > div {
+    color: #dcc30d;
+  }
+
+  /*----------------------------------------FICHEROº4 "Events"----------------------------------------*/
+
+  .events {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 300px 100px 400px;
+    background-color: black;
+  }
+  .events > header > menu > li, .events > header > menu > li > a {
+    text-shadow: 1px 1px 1px black;
+  }
+  .events > header {
+    grid-column: 1/3;
+    grid-row: 1/1;
+    display: flex;
+    flex-direction: column;
+  }
+  .video_events {
+    position: absolute;
+    grid-column: 1/3;
+    grid-row: 1/1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .events > nav {
+    grid-column: 1/2;
+    grid-row: 2/2;
+  }
+  .events > nav > div {
+    display: flex;
+    justify-content: center;
+  }
+  .events > nav > div > h1 {
+    color: white;
+    font-size: 30px;
+    text-shadow: 0px 4px 0px black;
+    filter: drop-shadow(0px 0px 1px);
+    letter-spacing: 4px;
+  }
+  .events > section {
+    display: flex;
+    grid-column: 1/3;
+    grid-row: 3/3;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  
+  /*Los dos hovers siguientes son independientes uno del otro*/
+
+  .events > section > div > img {
+    height: 320px;
+    border: solid 2px rgb(238, 230, 13);
+    border-style: ridge;
+    filter: grayscale(2)
+  }
+  .events > section > div > img:hover {
+    height: 360px;
+    filter: none;
+  }
+
+  /*La siguiente secuencia funciona con un operador de igualdad, como el hover solo funciona 
+  al lado de elementos hermanos (o sea juntos el uno al otro) al utilizar ~ se consigue que
+  tome todos los elementos que sean hermanos (o primos como se traduciria "silbing") del mismo 
+  padre incluso si están separados por varias líneas, es un selector general*/
+
+  section > div:hover ~ .videogray {  /*Los dos están en un div y todos los div pertenecen al mismo padre*/
+    filter: grayscale(2);
+  }
+  .videogray {
+    filter: none;
+  }
+ 
+  /*----------------------------------------FICHEROº5 "Join US" (Formulario)----------------------------------------*/
+
+  form {
+    font-family: "Orbitron";
+    font-size: 20px;
+    margin-left: 11%;
+    margin-top: 3%;
+  }
+  form > h3, form > div > div > div > h3 {
+    color: #dcc30d;
+  }
+  form > div {
+    color: white;
+    margin-right: 30%; 
+  }
+  form > div > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  form > div > div > div {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    flex-wrap: wrap;
+    border-spacing: 10px;
+    flex: 1;
+  }
+  input {
+    padding: 5px 20px; 
+    border-radius: 5px;
+    border: solid;
+    flex: 1;
+  }
+  input:hover {
+    border-color: #dcc30d;
+  }
+  label {
+    padding: 5px;
+  }
+  .education {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+  }
+  .button-register {
+    flex: none;
+    height: 50px; 
+    width: 40%;
+    background-color: red;
+    border-color: #e8e8e8;
+    font-family: "Orbitron";
+    font-size: 15px;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+
+/*Inspiración e influencia para el diseño:
+https://www.spacex.com/ 
+https://robertsspaceindustries.com/*

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ProyectoPersonal.css">
+    <title>Deep Nebula - Join Us</title> 
+</head>
+<body>
+    <video autoplay loop muted class="deepspace">
+        <source src="videos/stars.mp4" type="video/mp4">
+    </video>
+    <header>
+        <menu  class="special-structure">
+            <li><img src="imagenes/logo_deepnebula.png" class="logo"></li>
+            <li class="red"><a href="ProyectoPersonal.html">Home</a></li>
+            <li><a href="Journey.html">Journey</a></li>
+            <li class="red"><a href="Spaceships.html">Spaceships</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li class="red"><a href="form.html">Join Us</a></li>
+            <li class="name">Darien Rojas</li>
+        </menu>
+    </header>
+    <form name="Cosmonaut-Form" method="post">
+        <h3>Personal Information</h3>
+        <div>
+            <div>
+                <div>
+                    <label for="name">Name & surname</label>
+                    <input type="text" name="name" pattern="[A-Za-z ]+" maxlength="40" placeholder="Enter your name and surname" required>
+                </div>
+                <div >
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Choose a safe password" required>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="Phone-Number">Phone Number</label>
+                    <input type="tel" name="Phone-Number" pattern="[0-9]{9}" maxlength="9" placeholder="Enter a phone number" required>
+                </div>
+                <div>
+                    <label for="Email">Email</label>
+                    <input type="text" name="Email" maxlength="50" placeholder="Enter a email" required>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="Date-of-birth">Date of Birth</label>
+                    <input type="month" name="Date-of-birth" required>
+                </div>
+                <div>
+                    <label for="Gender">Gender</label>
+                    <label><input type="radio" name="Gender" value="Male">Male</label>
+                    <label><input type="radio" name="Gender" value="Female">Female</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <label for="Payment">Payment Details</label>
+                    <label><input type="radio" name="Payment" value="Credit-Card">Credit Card</label>
+                    <label><input type="radio" name="Payment" value="Paypal">PayPal</label>
+                </div>
+                <div>
+                    <label for="Continent">Choose geographical region</label>
+                    <select name="Continent">
+                        <option disabled selected value>select an option</option>
+                        <option value="Asia">Asia</option>
+                        <option value="America">America</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Europa">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="education">                
+                    <h3>Professional Information</h3>
+                    <label for="Education">Education level</label>
+                    <label><input type="checkbox" value="High school diploma">High school diploma</label>
+                    <label><input type="checkbox" value="Bachelor's degree">Bachelor's degree</label>
+                    <label><input type="checkbox" value="Master's degree">Master's degree</label>
+                    <label><input type="checkbox" value="Professional degree">Professional degree</label>
+                    <label><input type="checkbox" value="Doctorate">Doctorate</label>
+                </div>
+                <div class="form-end">
+                    <h3>Other kind of information</h3>
+                    <label for="comments">Tell us anything worth to know</label>
+                    <textarea type="text" name="comments" placeholder="Start here"></textarea>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Special Question</h3>
+                    <label for="Aliens">Are you aware of the existence of intelligent alien life forms?</label>
+                    <label><input type="radio" name="Aliens" value="Yes">Yes</label>
+                    <label><input type="radio" name="Aliens" value="No">No</label>
+                </div>
+                <div>
+                    <input type="submit" value="Register" class="button-register">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
